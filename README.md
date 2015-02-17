@@ -1,2 +1,2 @@
 # blog
-a new concept about a blog
+A new concept about a blog based on Polymer
