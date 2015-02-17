@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Prodesign, Design, UI, UX and some interfaces experiments</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js">
+  </script>
+
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+  <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+  <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+  <!-- <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html"> -->
+
+  <link rel="import" href="post-card.html">
+
+  <link rel="stylesheet" href="assets/style.css" shim-shadowdom>
+
+   <body>
+
+   		<core-header-panel>
+
+   			<core-toolbar class="dark-theme">
+		    <!-- <core-icon-button icon="menu"></core-icon-button>-->
+  			  <div flex="">Prodesign</div>
+  			  <paper-tabs selected="0" horizontal center-justified layout>
+  				  <paper-tab>Desing</paper-tab>
+  				  <paper-tab>UX</paper-tab>
+    				<paper-tab>Code</paper-tab>
+  				</paper-tabs>
+
+          <core-dropdown-menu label="Chose Theme" relative="" layout="" inline="" horizontal="" center="" tabindex="0">
+            <core-dropdown class="dropdown" tabindex="-1" style="outline: none; box-sizing: border-box; display: none;">
+              <core-menu>
+                  <core-item horizontal="" center="" layout="">Design</core-item>                
+                  <core-item horizontal="" center="" layout="">UX</core-item>
+                  <core-item horizontal="" center="" layout="">Code</core-item>
+              </core-menu>
+            </core-dropdown>
+          </core-dropdown-menu>
+
+				  <core-icon-button id="icon-refresh" icon="refresh"></core-icon-button>
+		   
+	  		</core-toolbar>
+
+	  		<paper-progress value="10"></paper-progress>
+
+	  		<div class="container" layout vertical center ng-view>
+
+    	  	
+
+			  </div>
+
+   		</core-header-panel>
+	   	<script src="js/config/config.js"></script>
+   	  <script data-main="js/main.js" src="js/require/require.js"></script>
+   </body>
+
+</head>
+</html>

@@ -1,0 +1,52 @@
+<paper-shadow class="card" z="2" data-ng-repeat="post in lastPosts">
+    <post-card>
+        <paper-fab icon="arrow-forward" class="red" data-ng-click="seeArticle(post.id,post.url)"></paper-fab>              
+        <img data-ng-src="{{post.image_url}}">
+        <div class="card-content">
+            <div><h2>{{post.title}}</h2></div>
+            <div wrap="" horizontal="" layout="" reverse="">
+                <segment>
+                    <core-icon icon="account-circle"></core-icon> 
+                    by {{post.autor_alias}}
+                </segment>
+                <segment>
+                    <core-icon icon="account-child"></core-icon> 
+                    Share this
+                </segment>
+            </div>
+        </div>
+    </post-card>
+</paper-shadow>
+
+<!-- <div class="post units-row" data-ng-repeat="post in lastPosts">
+    <div class="unit-60">
+        <a href="#/articulo/{{post.id}}/{{post.url}}">
+            <img data-ng-src="{{post.image_url}}" class="border post-header-image" />
+        </a>
+    </div>
+    <div class="parraf unit-40">
+    
+        <h2>
+            <a href="#/articulo/{{post.id}}/{{post.url}}">
+                {{post.title}}
+            </a>
+        </h2>
+        
+        <blockquote>
+            <p class="text-justify">
+                {{post.resume}}
+            </p>
+            <small>Escrito por {{post.autor_alias}}</small> &mdash; <cite>{{post.post_time}}</cite>
+        </blockquote>
+
+        <fb-like-button data-post="post"></fb-like-button>
+
+        <fb-button-share data-publish="post"></fb-button-share>
+        
+        <div class="post-labels background-green text-centered">
+            <a href="">#UX</a>
+            <a href="">#Diseño</a>
+        </div>
+    
+    </div>
+</div> -->
