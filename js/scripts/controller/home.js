@@ -1,7 +1,11 @@
 define(['app'], function (app) {
-    app.register.controller('HomeCtrl',['$scope','promisesFactory', function ($scope,promisesFactory) {
+    app.register.controller('HomeCtrl',['$scope','Post', function ($scope,Post) {
 
-    	var params={
+    	Post.all().then(function(data){
+    		console.log(data);
+    	})
+
+    	/*var params={
     		appId : '12345'
     	}
 
@@ -28,7 +32,7 @@ define(['app'], function (app) {
 		$scope.seeArticle=function(id,url){
 			alert(0)
 			location.href="#/articulo/"+id+"/"+url
-		}
+		}*/
 
     }]);
 

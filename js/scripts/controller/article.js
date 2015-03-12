@@ -1,7 +1,7 @@
 define(['app'], function (app) {
-    app.register.controller('articleCtrl', function ($scope, $routeParams, promisesFactory,$sce) {
+    app.register.controller('articleCtrl', function ($scope, $routeParams,$sce) {
         
-        var params={
+       /* var params={
     		appId : '12345'
     	}
     	
@@ -28,7 +28,7 @@ define(['app'], function (app) {
 	
 		$scope.trustHtml = function(data){
 			return $sce.trustAsHtml(data);
-	    }
+	    }*/
 
     });
 }); 

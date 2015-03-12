@@ -24,8 +24,7 @@ require.config({
   deps: ['app',
          'directives/sticky',
          'directives/fb-components',
-         'factories/promisesFactory',
-         'factories/resourceFactory',
-         'factories/fbUiFactory'
+         'factories/fbUiFactory',
+         'factories/services'
         ]
 });
