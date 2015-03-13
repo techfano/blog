@@ -1,8 +1,10 @@
 define(['app'], function (app) {
-    app.register.controller('HomeCtrl',['$scope','Post', function ($scope,Post) {
+    app.register.controller('HomeCtrl',['$scope','services', function ($scope,services) {
 
-    	Post.all().then(function(data){
-    		console.log(data);
+    	var Post = services.post.all();
+
+    	Post.then(function(data){
+    		$scope.lastPosts = data[0].post;
     	})
 
     	/*var params={

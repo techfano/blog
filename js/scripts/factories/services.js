@@ -4,8 +4,10 @@ define(['app'], function (app) {
         API_KEY:'o5wMMdzdsFiwqsD6Pd-gh2-rCRmUnk4N', 
         DB_NAME:'pinbuydb'
     })  
-    .factory('Post', function ($mongolabResourceHttp) {
-        return $mongolabResourceHttp('post');
+    .factory('services', function ($mongolabResourceHttp) {
+        return {
+            post : $mongolabResourceHttp('post')
+        }
     });
 
     app.factory('$mongolabResourceHttp', ['MONGOLAB_CONFIG', '$http', '$q', function (MONGOLAB_CONFIG, $http, $q) {

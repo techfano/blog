@@ -124,8 +124,7 @@ define(function () {
                     });
 
                     $rootScope.$on('$routeChangeStart',function(){
-                        console.log('start')
-                        loader.show();
+                        console.log('start');
                     });
 
                     $rootScope.$on('$viewContentLoaded',function(){
@@ -135,9 +134,7 @@ define(function () {
                     $rootScope.$on('$routeChangeSuccess',function(){
                         console.log('success')
                         setTimeout( function() {
-                            loader.hide();
-
-
+                            
                         }, 800 );
                     });
 
