@@ -1,6 +1,6 @@
 <paper-shadow class="card" z="2" data-ng-repeat="post in lastPosts">
     <post-card>
-        <paper-fab icon="arrow-forward" class="red" data-ng-click="seeArticle(post.id,post.url)"></paper-fab>              
+        <paper-fab icon="arrow-forward" class="red" data-ng-click="seeArticle(post.url)"></paper-fab>              
         <img data-ng-src="{{post.image_url}}">
         <div class="card-content">
             <div><h2>{{post.title}}</h2></div>

@@ -6,7 +6,9 @@ define(['app'], function (app) {
     })  
     .factory('services', function ($mongolabResourceHttp) {
         return {
-            post : $mongolabResourceHttp('post')
+            post : $mongolabResourceHttp('post'),
+            autor : $mongolabResourceHttp('autor'),
+            paragraph : $mongolabResourceHttp('paragraph')
         }
     });
 

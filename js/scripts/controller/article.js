@@ -1,5 +1,28 @@
 define(['app'], function (app) {
-    app.register.controller('articleCtrl', function ($scope, $routeParams,$sce) {
+    app.register.controller('articleCtrl', function ($scope, $routeParams,$sce,services) {
+
+    	
+    	var currentPost = services.post.query({url:$routeParams.url},{});
+
+    	var currentParagraph = services.paragraph.query({post_url:$routeParams.url},{});
+
+    	var autor = function(id){
+			return services.autor.getById(id);
+    	};
+
+    	currentPost.then(function(data){
+    		$scope.post = data[0];
+			
+			autor($scope.post.autor_id).then(function(data) {
+				$scope.post.autor_alias=data.alias;
+			},function(reason){});
+    	});
+
+    	currentParagraph.then(function(data){
+    		$scope.paragraphList = data;
+    	});
+
+
         
        /* var params={
     		appId : '12345'

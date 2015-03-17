@@ -1,12 +1,31 @@
 define(['app'], function (app) {
     app.register.controller('HomeCtrl',['$scope','services', function ($scope,services) {
 
-    	var Post = services.post.all();
+    	var post = services.post.all();
 
-    	Post.then(function(data){
-    		$scope.lastPosts = data[0].post;
-    	})
+    	var autor = function(id){
+			return services.autor.getById(id);
+    	};
 
+    	post.then(function(data){
+
+    		$scope.lastPosts = data;
+
+    		angular.forEach($scope.lastPosts,function(value,key){
+
+    			autor(value.autor_id).then(function(data) {
+					value.autor_alias=data.alias;
+				});
+
+    		});
+
+    	});
+
+    	$scope.seeArticle=function(url){
+			location.href="#/articulo/"+url
+		}
+
+    	
     	/*var params={
     		appId : '12345'
     	}

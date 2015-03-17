@@ -20,21 +20,15 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
         controller: 'HomeCtrl',
         controllerUrl: 'controller/home'
     }))
-    .when("/article/:id_p/:id/", angularAMD.route({
+    .when("/article/:url/", angularAMD.route({
         templateUrl: 'views/article.html',
         controller: 'articleCtrl',
         controllerUrl: 'controller/article'
     }))
-    .when("/articulo/:id_p/:id", angularAMD.route({
+    .when("/articulo/:url/", angularAMD.route({
         templateUrl: 'views/article.html',
         controller: 'articleCtrl',
         controllerUrl: 'controller/article'
-    }))
-    
-    .when("/editor", angularAMD.route({
-        templateUrl: 'views/editor.html',
-        controller: 'EditorCtrl',
-        controllerUrl: 'controller/editor'
     }))
     
     .otherwise({redirectTo: "/portada"});
