@@ -22,12 +22,30 @@
 	.content{
 		position: relative;
 		width: 100%;
-		height: 500px;
+		height: auto;
 		z-index: 1000;
 		background: white;
 		opacity: 0.9;
 	    filter: alpha(opacity=20);
+	    /*padding: 10px;*/
 	}
+
+	.content h2{
+		text-align: center;
+		padding-top: 10px;
+	}
+
+	article {
+		padding: 20px;
+		text-align: justify;
+	}
+
+	article img{
+		position: relative !important;
+		max-width: 100%;
+		height: auto;
+	}
+
 
 </style>
 <core-scroll-header-panel condenses="">
@@ -38,17 +56,32 @@
       <!-- <div flex=""></div>
       <core-icon-button icon="search"></core-icon-button>
       <core-icon-button icon="more-vert"></core-icon-button> -->
-      <div class="bottom indent title" style="-webkit-transform: scale(1) translateZ(0px); transform: scale(1) translateZ(0px);">Title</div>
+      <!-- <div class="bottom indent title" style="-webkit-transform: scale(1) translateZ(0px); transform: scale(1) translateZ(0px);">{{post.title}}</div> -->
 
     </core-toolbar>
 
     <div class="content">
 
+  		<h2>{{post.title}}</h2>
+
+
+		<article data-ng-repeat="paragraph in paragraphList">
+			
+			<figure>
+				<img data-ng-show="paragraph.image_url" data-ng-src="{{paragraph.image_url}}" />
+			</figure>
+
+			<h3><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h3>
+
+			<div data-ng-bind-html="trustHtml(paragraph.paragraph)">
+			</div>
+
+  		</article>
       
     </div>
 
   </core-scroll-header-panel>
-
+  
 
 <!-- <nav class="breadcrumbs breadcrumbs-path">
     <ul>

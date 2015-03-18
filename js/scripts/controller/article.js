@@ -15,12 +15,21 @@ define(['app'], function (app) {
 			
 			autor($scope.post.autor_id).then(function(data) {
 				$scope.post.autor_alias=data.alias;
-			},function(reason){});
+			});
+
+			console.log($scope.post)
+
     	});
 
     	currentParagraph.then(function(data){
     		$scope.paragraphList = data;
+			console.log($scope.paragraphList)
+
     	});
+
+    	$scope.trustHtml = function(data){
+			return $sce.trustAsHtml(data);
+	    };
 
 
         
