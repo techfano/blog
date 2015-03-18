@@ -31,6 +31,12 @@ define(['app'], function (app) {
 			return $sce.trustAsHtml(data);
 	    };
 
+	    $scope.returnInit = function(){
+
+			location.href="#/portada"
+
+	    }
+
 
         
        /* var params={
