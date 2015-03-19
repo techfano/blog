@@ -9,21 +9,23 @@ html, body {
 /*General*/
 
 paper-button {
-    background: #1078B5;
-    color: white;
+  background: #1078B5;
+  color: white;
 }
 
 paper-button::shadow #ripple {
   color: #FFFF00;
 }
 
-
+paper-spinner.blue::shadow .circle {
+  border-color: #4285f4;
+}
 
 /*customize*/
 
 #box-login{
   width: 300px;
-  height: 300px;
+  height: 350px;
   background: white;
   top: 150px;
 }
@@ -38,7 +40,11 @@ paper-button::shadow #ripple {
 
 #box-login paper-button{
   margin-top: 25px;
-  margin-bottom: 20px;
+/*  margin-bottom: 20px;*/
+}
+
+#box-login paper-spinner{
+  margin: 30px;
 }
 
     
