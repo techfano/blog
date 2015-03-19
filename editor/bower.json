@@ -1,0 +1,15 @@
+{
+  "name": "blog_concept",
+  "version": "0.0.1",
+  "authors": [
+    "Estefano Castañeda <mixc21@gmail.com>"
+  ],
+  "description": "this is a new concept about a blog in polymerjs development",
+  "license": "MIT",
+  "homepage": "http://prodesign.pe",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.2",
+    "font-roboto": "Polymer/font-roboto#~0.5.2"
+  }
+}
