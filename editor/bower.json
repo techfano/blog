@@ -13,6 +13,7 @@
     "paper-shadow": "Polymer/paper-shadow#~0.5.5",
     "paper-button": "Polymer/paper-button#~0.5.5",
     "font-roboto": "Polymer/font-roboto#~0.5.5",
-    "core-label": "Polymer/core-label#~0.5.5"
+    "core-label": "Polymer/core-label#~0.5.5",
+    "paper-spinner": "Polymer/paper-spinner#~0.5.5"
   }
 }
