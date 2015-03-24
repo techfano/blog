@@ -9,6 +9,7 @@
   "author": "Techfano",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.12.3",
     "jsonwebtoken": "^4.2.1",
     "mongolab-provider": "^1.1.1"
   }
