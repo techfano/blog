@@ -8,8 +8,12 @@
   "license": "MIT",
   "homepage": "http://prodesign.pe",
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.2",
-    "core-toolbar": "Polymer/core-toolbar#~0.5.2",
-    "font-roboto": "Polymer/font-roboto#~0.5.2"
+    "polymer": "~0.5.5",
+    "paper-input": "Polymer/paper-input#~0.5.5",
+    "paper-shadow": "Polymer/paper-shadow#~0.5.5",
+    "paper-button": "Polymer/paper-button#~0.5.5",
+    "font-roboto": "Polymer/font-roboto#~0.5.5",
+    "core-label": "Polymer/core-label#~0.5.5",
+    "paper-spinner": "Polymer/paper-spinner#~0.5.5"
   }
 }
