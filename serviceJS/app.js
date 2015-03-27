@@ -26,7 +26,7 @@ app.get('/api/auth/:user/:key', function(req, res) {
   
 	mongodb.documents('user', {where:{username:req.params.user,password:req.params.key}}, function(err,data){
 
-		if (err) {
+		
 
 			var auth={};
 
@@ -42,12 +42,7 @@ app.get('/api/auth/:user/:key', function(req, res) {
 				res.send(errorResponseText);						
 			}
 
-		}else{
-
-			res.send(errorResponseText+' MDB');
-
-		}
-
+		
 	});
 
 

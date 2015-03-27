@@ -22,8 +22,26 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
     }))
     
     .otherwise({redirectTo: "/login"});
+
+    $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location) {
+        return {
+                'request': function (config) {
+                    config.headers = config.headers || {};
+                    if (localStorage.getItem("token")) {
+                        config.headers.Authorization = localStorage.getItem("token");
+                    }
+                    return config;
+                },
+                'responseError': function(response) {
+                    if(response.status === 401 || response.status === 403) {
+                        $location.path('/signin');
+                    }
+                    return $q.reject(response);
+                }
+            };
+        }]);
     
-  });
+    });
 
   app.run( function( $rootScope ) {
       // Load the facebook SDK asynchronously
