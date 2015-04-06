@@ -11,6 +11,19 @@ var app = express()
 var mongodb = require('mongolab-provider').init('pinbuydb', 'o5wMMdzdsFiwqsD6Pd-gh2-rCRmUnk4N');
 var jwt = require('jsonwebtoken');
 
+function ensureAuthorized(req, res, next) {
+	var bearerToken;
+    var bearerHeader = req.headers["authorization"];
+    if (typeof bearerHeader !== 'undefined') {
+        var bearer = bearerHeader.split(" ");
+        bearerToken = bearer[1];
+        req.token = bearerToken;
+        next();
+    } else {
+        res.send(403);
+    }
+}
+
 var errorResponseText='Error in server';
 
 app.use(function(req, res, next) {
@@ -23,8 +36,15 @@ app.use(function(req, res, next) {
 app.set('json spaces', 2);
 
 app.get('/api/auth/:user/:key', function(req, res) {
+
+	var params = {
+		where:{
+			username:req.params.user,
+			password:req.params.key
+		}
+	};
   
-	mongodb.documents('user', {where:{username:req.params.user,password:req.params.key}}, function(err,data){
+	mongodb.documents('user', params, function(err,data){
 
 		
 
@@ -36,9 +56,11 @@ app.get('/api/auth/:user/:key', function(req, res) {
 					auth.token = token;
 					res.send(auth);
 				}else{
+					res.status(401);
 					res.send(errorResponseText);
 				}
 			}else{
+				res.status(403);
 				res.send(errorResponseText);						
 			}
 
@@ -47,6 +69,20 @@ app.get('/api/auth/:user/:key', function(req, res) {
 
 
 });
+
+app.get('/api/me/:id', function(req, res) {
+
+	mongodb.findId('user', req.params.id, function(err,user){
+
+		delete user.password;
+		delete user.username;
+
+		res.send(user);
+
+	});
+
+});
+
 
 
 

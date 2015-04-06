@@ -2,7 +2,7 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
   
   var app = angular.module("webapp", ['ngRoute','ngResource','ngFacebook']);
 
-  app.config(function ($routeProvider,$facebookProvider) {
+  app.config(function ($routeProvider,$facebookProvider,$httpProvider) {
   
     $facebookProvider.setAppId('280600418655651');
 
@@ -23,7 +23,7 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
     
     .otherwise({redirectTo: "/login"});
 
-    $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location) {
+    $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
         return {
                 'request': function (config) {
                     config.headers = config.headers || {};
@@ -34,7 +34,7 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
                 },
                 'responseError': function(response) {
                     if(response.status === 401 || response.status === 403) {
-                        $location.path('/signin');
+                        $location.path('/login');
                     }
                     return $q.reject(response);
                 }
