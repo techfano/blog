@@ -22,9 +22,10 @@ require.config({
   },
 
   deps: ['app',
-         'directives/sticky',
+         'constants/resourceServiceConfig',
+         'services/resourceService',
          'directives/fb-components',
          'factories/fbUiFactory',
-         'factories/services'
+         'modules/ng-polymer'
         ]
 });

@@ -10,21 +10,22 @@ var express = require('express')
 var app = express()
 var mongodb = require('mongolab-provider').init('pinbuydb', 'o5wMMdzdsFiwqsD6Pd-gh2-rCRmUnk4N');
 var jwt = require('jsonwebtoken');
-
-function ensureAuthorized(req, res, next) {
-	var bearerToken;
-    var bearerHeader = req.headers["authorization"];
-    if (typeof bearerHeader !== 'undefined') {
-        var bearer = bearerHeader.split(" ");
-        bearerToken = bearer[1];
-        req.token = bearerToken;
-        next();
-    } else {
-        res.send(403);
-    }
-}
-
 var errorResponseText='Error in server';
+
+function authorized(req, res, next) {
+	
+	var header = req.headers["authorization"];
+    
+    jwt.verify(req.params.token, 'shhhhh', function(err, decoded) {
+    	if(err){
+  			res.status(403);
+  			res.send(errorResponseText);
+  		}else{
+			next();
+  		}
+    });
+
+}
 
 app.use(function(req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -46,12 +47,10 @@ app.get('/api/auth/:user/:key', function(req, res) {
   
 	mongodb.documents('user', params, function(err,data){
 
-		
-
 			var auth={};
 
 			if(data[0]){
-				var token = jwt.sign(data[0], 'shhhhh');
+				var token = jwt.sign(data[0], 'shhhhh',{expiresInSeconds:30});
 				if(req.params.user === data[0].username && req.params.key === data[0].password){
 					auth.token = token;
 					res.send(auth);
@@ -63,14 +62,30 @@ app.get('/api/auth/:user/:key', function(req, res) {
 				res.status(403);
 				res.send(errorResponseText);						
 			}
-
 		
 	});
 
 
 });
 
-app.get('/api/me/:id', function(req, res) {
+app.get('/api/verify/:token',authorized,function(req, res){
+
+	jwt.verify(req.params.token, 'shhhhh', function(err, decoded) {
+  		if(err){
+  			res.status(403);
+  			res.send(err);
+  		}else{
+  			
+			delete decoded.password;
+			delete decoded.username;  			
+  			res.send(decoded);
+
+  		}
+	});
+
+});
+
+app.get('/api/me/:id',authorized, function(req, res) {
 
 	mongodb.findId('user', req.params.id, function(err,user){
 

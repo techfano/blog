@@ -9,10 +9,10 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
     $facebookProvider.setPermissions("publish_actions");
 
     $routeProvider
-    .when("/home", angularAMD.route({
-        templateUrl: 'views/home.html',
-        controller: 'HomeCtrl',
-        controllerUrl: 'controller/home'
+    .when("/dashboard", angularAMD.route({
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerUrl: 'controller/dashboard'
     }))
   
     .when("/login", angularAMD.route({
@@ -64,7 +64,7 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
       }());
   })
 
-  angularAMD.bootstrap(app,'directives/sticky');
+  angularAMD.bootstrap(app);
 
   return app;
 });

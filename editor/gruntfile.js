@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         // or an Array of String for multiple entries
         // You can use globing patterns like `css/**/*.css`
         // See https://github.com/gruntjs/grunt-contrib-watch#files
-        files: ['index.html'],
+        files: ['index.html','js/scripts/**/*.js'],
         options: {
           livereload: true
         }

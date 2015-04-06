@@ -1,15 +1,25 @@
 
-<paper-shadow z="2" id="box-login" vertical layout center>
+<paper-shadow ng-init="user={}" z="2" id="box-login" >
 	
-	<core-label>Prodesign</core-label>
-	<paper-input label="User Name" value ="{{input}}" auto-vertical></paper-input>
-	<paper-input label="Password" value ="{{input}}" auto-vertical></paper-input>
-	<paper-button>
-		<core-icon icon="account-box"></core-icon>&nbsp
-		Sign In 
-	</paper-button>
+	<div ng-show="!loading" vertical layout center>
+	
+		<core-label>Prodesign</core-label>
+		<paper-input label="User Name" ng-model="user.name" auto-vertical floatingLabel></paper-input>
+		<paper-input-decorator label="User Password" floatingLabel>
+	    	<input is="core-input" ng-model="user.password" type="password">
+	    </paper-input-decorator>
+		<!-- <paper-input type="password" label="Password" ng-model="user.password" auto-vertical></paper-input> -->
+		<paper-button ng-disabled="!user.name || !user.password" ng-click="getLogin(user)">
+			<core-icon icon="account-box"></core-icon>&nbsp
+			Sign In 
+		</paper-button>
 
-	<paper-spinner class="blue" active></paper-spinner>
+	</div>
 
+	<div ng-show="loading" vertical layout center>
+
+		<paper-spinner class="blue" active></paper-spinner>
+
+	</div>
 
 </paper-shadow>
