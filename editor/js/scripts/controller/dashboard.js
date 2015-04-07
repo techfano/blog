@@ -1,15 +1,11 @@
 define(['app'], function (app) {
-    app.register.controller('DashboardCtrl',['$scope','$resource', function ($scope,$resource) {
+    app.register.controller('DashboardCtrl',['$scope','$resource','$location', function ($scope,$resource,$location) {
 
-         var token=localStorage.getItem('token');
-            
-            var verify = $resource('http://localhost:4000/api/verify/'+token);
 
-            verify.get(function(verify){
-                $location.path('/login');
-            },function(error){
-                $location.path('/dashboard');
-            });
+        $scope.getLogout = function(){
+            localStorage.removeItem('token');
+            $location.path('/login');
+        };
     	
     }]);
 

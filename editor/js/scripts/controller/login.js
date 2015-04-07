@@ -1,51 +1,35 @@
 define(['app'], function (app) {
     app.register.controller('LoginCtrl',['$scope','$resource','$resourceService','$location', function ($scope,$resource,resourceService,$location) {
-           
-           var token=localStorage.getItem('token');
-            
-	    	var verify = $resource('http://localhost:4000/api/verify/'+token);
 
-	    	verify.get(function(verify){
-	           	$location.path('/dashboard');
-	    	},function(error){
-	           	$location.path('/login');
-	    	});
+		$scope.toastLogin={
+			open: false,
+			text: ''
+		}    	
 
-	    	var user = $resource('http://localhost:4000/api/me/5510578ce4b0e5b0b43a1aa3');
+        $scope.getLogin=function(user){
 
-	    	user.get(function(user){
-	    		console.log(user);
-	    	},function(error){
-	    		console.log(error);
-	    	});
+        	if(user.name && user.password){
 
-            $scope.getLogin=function(user){
+            	var auth = $resource('http://localhost:4000/api/auth/login/'+user.name+'/'+user.password);
 
-            	if(user.name && user.password){
+            	$scope.loading=true;
+        	
+        	    auth.get(function(auth){
+              
+    		        localStorage.setItem("token", auth.token);
+		           	$location.path('/dashboard');
+		           	
+	            },function(error){
 
-	            	var auth = $resource('http://localhost:4000/api/auth/'+user.name+'/'+user.password);
+		           	delete $scope.loading;
+		           	$scope.toastLogin.open = true;
+		           	$scope.toastLogin.text = error.data
 
-	            	$scope.loading=true;
-	        	
-	        	    auth.get(function(auth){
-	              
-	    		        localStorage.setItem("token", auth.token);
-			           	delete $scope.loading;
-			           	if(auth.token){
-				           	$location.path('/dashboard');
-			           	}
+	            });
 
-		            },function(error){
+	         }
 
-		            	console.log(error)
-
-			           	delete $scope.loading;
-
-		            });
-
-		         }
-
-            };
+        };
 
     }]);
 

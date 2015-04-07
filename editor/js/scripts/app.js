@@ -43,9 +43,37 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
     
     });
 
-  app.run( function( $rootScope ) {
+    app.run( function( $rootScope ,$resource, $location) {
+    
+
+        var checkingSession = function(){
+
+            var token=localStorage.getItem('token');
+
+            var verify = $resource('http://localhost:4000/api/auth/verify/'+token);
+
+            if(token){
+
+              verify.get(function(verify){
+                  $location.path('/dashboard');
+              },function(error){
+                  $location.path('/login');
+              });              
+
+            }else{
+              $location.path('/login');
+            }
+
+        };
+        
+        $rootScope.$on('$routeChangeStart',function(obj,data){
+            
+            checkingSession();
+
+        });
+
       // Load the facebook SDK asynchronously
-      (function(){
+        (function(){
          // If we've already installed the SDK, we're done
          if (document.getElementById('facebook-jssdk')) {return;}
 
@@ -61,8 +89,9 @@ define(['angularAMD', 'angular-route','angular-resource','facebook'], function (
 
          // Insert the Facebook JS SDK into the DOM
          firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-      }());
-  })
+        }());
+
+    })
 
   angularAMD.bootstrap(app);
 

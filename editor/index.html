@@ -13,10 +13,19 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/core-label/core-label.html">
   <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 
   <link rel="stylesheet" type="text/css" href="assets/style.css">
 
   <body>
+
+    <core-header-panel>
+        <core-toolbar class="dark-theme">
+        </core-toolbar>
+    </core-header-panel>
+
     <div class="container" layout vertical center ng-view></div>
    	<script data-main="js/main.js" src="js/require/require.js"></script>
   </body>

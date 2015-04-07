@@ -24,7 +24,7 @@ define(['app'], function (app) {
 	        	primitive: 'disabled'
 	        }
 	    }
-	    
+
 	    var selectorMappings = {
 	    	ngModel: {
 	    		primitive: 'selected'
@@ -43,7 +43,10 @@ define(['app'], function (app) {
 	    var openableMappings = {
 	    	ngOpened: {
 	    		primitive: 'opened'
-	    	}
+	    	},
+	    	ngModel:{
+	        	primitive: 'text'
+	        }
 	    };
 
 	    var allMappings = {
