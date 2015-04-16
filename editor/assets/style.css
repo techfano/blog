@@ -6,10 +6,16 @@ html, body {
   		font-family: 'Roboto', sans-serif;
 }
 
+core-icon-button.blue{
+  background-color: #1078B5;
+  color: white;
+}
+
 /*General*/
 
 core-header-panel {
   height: 100%;
+  width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -23,6 +29,20 @@ core-toolbar.dark-theme {
   color: #f1f1f1;
   fill: #f1f1f1;
 }
+
+core-menu core-item{
+  color: white;
+}
+
+core-drawer-panel{
+  background: #FFF;
+}
+
+[drawer] {
+  background: #1078B5;
+}
+
+
 
 paper-button {
   background: #1078B5;
@@ -61,10 +81,14 @@ paper-toast.red {
 }
 
 #box-login paper-input{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-#box-login paper-button{
+#box-login paper-input-decorator{
+  margin-top: 10px;
+}
+
+#box-login core-icon-button{
   margin-top: 25px;
 /*  margin-bottom: 20px;*/
 }
@@ -72,5 +96,19 @@ paper-toast.red {
 #box-login paper-spinner{
   margin: 30px;
 }
+
+core-drawer-panel div [flex]{
+  padding: 5px;
+  border-right: 1px solid #CCC;
+}
+
+core-drawer-panel div [flex]:last-child{
+  border-right: none;
+}
+
+core-drawer-panel div [flex]{
+  border-right: none;
+}
+
 
     

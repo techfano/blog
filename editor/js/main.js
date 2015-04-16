@@ -7,6 +7,7 @@ require.config({
     'angular-route': '../angular/angular-route.min',
     'angular-resource': '../angular/angular-resource.min',
     'angular-sanitize': '../angular/angular-sanitize.min',
+    'angular-ui-route': '../angular/angular-ui-router.min',
     'angularAMD': '../angular/angularAMD',
     'directives': 'directives',
     'factories': 'factories',
@@ -18,6 +19,7 @@ require.config({
     'angular-route': ['angular'],
     'angular-resource': ['angular'],
     'angular-sanitize': ['angular'],
+    'angular-ui-route': ['angular'],
     'facebook': ['angular']
   },
 
