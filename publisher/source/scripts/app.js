@@ -88,7 +88,7 @@
                       .icon("close", "svg/close.svg", 24);
 
                       $mdThemingProvider.theme('default')
-                          .primaryPalette('blue')
+                          .primaryPalette('teal')
                           .accentPalette('red');
         
     });
