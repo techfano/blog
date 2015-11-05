@@ -6,20 +6,23 @@ module.exports = function(grunt) {
 
   var bowerFile = grunt.file.readJSON('./bower.json');
 
-  var scripts = {
-        js: [],
-        css: []
-      };
+  var project = {
+    version: bowerFile.version,
+    scripts: {
+      js:[],
+      css:[]
+    }     
+  }
 
   Object.keys(bowerFile.dependencies).map(
         function(file) {
-            scripts.js.push('source/lib/'+file+'.js');
+            project.scripts.js.push('source/lib/'+file+'.js');
         }
   );
 
   Object.keys(bowerFile.dependencies).map(
         function(file) {
-            scripts.css.push('source/css/lib/'+file+'.css');
+            project.scripts.css.push('source/css/lib/'+file+'.css');
         }
   );
  
@@ -47,7 +50,7 @@ module.exports = function(grunt) {
                 relative: true,
                 scripts: {
                     bundle: [
-                              scripts.js,
+                              project.scripts.js,
                               'source/lib/**/*.js',
                               'source/scripts/**/*.js'
                             ]
@@ -55,7 +58,7 @@ module.exports = function(grunt) {
                 styles: {
                     bundle: [ 
                         'source/css/**/*.css',
-                        scripts.css
+                        project.scripts.css
                     ]
                 },
                 sections: {
@@ -175,14 +178,14 @@ module.exports = function(grunt) {
       css:{
         src: ['source/css/attach.css',
               'source/css/**/*.css'],
-        dest: 'distro/css/prodesign-'+bowerFile.version+'.css'
+        dest: 'distro/css/prodesign-'+project.version+'.css'
 
       },
       js:{
         src:['source/lib/angular.js',
             'source/lib/**/*.js',
             'source/scripts/**/*.js'],
-        dest:'distro/js/prodesign-' + bowerFile.version + '.js'
+        dest:'distro/js/prodesign-' + project.version + '.js'
       }
     },
 
@@ -194,7 +197,7 @@ module.exports = function(grunt) {
     compress: {
       distro: {
         options: {
-          archive: 'export/prodesign-'+bowerFile.version+'.zip'
+          archive: 'export/prodesign-'+project.version+'.zip'
         },
         expand: true,
         cwd: 'distro',
