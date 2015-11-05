@@ -175,14 +175,14 @@ module.exports = function(grunt) {
       css:{
         src: ['source/css/attach.css',
               'source/css/lib/**/*.css'],
-        dest: 'distro/css/distro.css'
+        dest: 'distro/css/prodesign-'+bowerFile.version+'.css'
 
       },
       js:{
         src:['source/lib/angular.js',
             'source/lib/**/*.js',
             'source/scripts/**/*.js'],
-        dest:'distro/js/distro.js'
+        dest:'distro/js/prodesign-' + bowerFile.version + '.js'
       }
     },
 
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
     compress: {
       distro: {
         options: {
-          archive: 'export/distro.zip'
+          archive: 'export/prodesign-'+bowerFile.version+'.zip'
         },
         expand: true,
         cwd: 'distro',

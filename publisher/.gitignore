@@ -2,7 +2,6 @@
 node_modules/
 bower_components/
 distro/
-export/
 .sass-cache/
 source/css/lib/
 source/index.html
