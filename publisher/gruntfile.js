@@ -174,7 +174,7 @@ module.exports = function(grunt) {
     concat: {
       css:{
         src: ['source/css/attach.css',
-              'source/css/lib/**/*.css'],
+              'source/css/**/*.css'],
         dest: 'distro/css/prodesign-'+bowerFile.version+'.css'
 
       },
