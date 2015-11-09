@@ -231,6 +231,9 @@ module.exports = function(grunt) {
  
     // grunt-watch will monitor the projects files
     watch: {
+      options: {
+        livereload: 35729
+      },
       all: {
         tasks: ['jshint:all','htmlbuild','sass'],
         files: ['template/**/*.html',
@@ -238,10 +241,7 @@ module.exports = function(grunt) {
                 'source/**/*.js',
                 'source/config/**.js',
                 'source/scripts/**/*.js',
-                'source/css/**/**.scss'],
-        options: {
-          livereload: 35729
-        }
+                'source/css/**/**.scss']
       }
     },
  
