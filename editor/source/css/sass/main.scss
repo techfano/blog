@@ -32,8 +32,12 @@ md-content .article{
 }
 
 md-card{
-	width: 800px;
+	width: 100%;
 	margin: 0 auto 15px auto;
+}
+
+#cards-list{
+	overflow-y:auto;
 }
 
 md-content .img-container{
@@ -98,6 +102,12 @@ md-content .article p{
 	margin: 0 auto;
 	background: $background-color !important;
 	height:100%;
+}
+
+#container-mini {
+    width: 100%;
+    background: #F2F2F2 !important;
+    height: 100%;
 }
 
 @media(max-width:800px){
