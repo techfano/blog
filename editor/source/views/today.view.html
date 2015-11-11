@@ -1,21 +1,19 @@
 <md-toolbar id="toolbar-mini">
   <div class="md-toolbar-tools">
-    
-    <h1>
+    <md-input-container ng-show="searchToggle" md-theme="dark" flex>
+      <label>Busqueda</label>
+      <input ng-model="user.name" flex> 
+    </md-input-container>
+    <h1 ng-show="!searchToggle" flex>
       ARTICULOS
     </h1>
-    <md-button class="md-icon-button" aria-label="Settings">
+    <md-button ng-click="searchToggle = !searchToggle;" class="md-icon-button" aria-label="Settings">
       <md-icon md-svg-icon="search"></md-icon>
     </md-button>
   </div>
 </md-toolbar>
 
 <md-content id="container-mini" flex>
-    
-    <md-input-container md-theme="blue" flex>
-      <label>First name</label>
-      <input ng-model="user.name">
-    </md-input-container>
 
   <md-card ng-repeat="post in publications">
     <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">

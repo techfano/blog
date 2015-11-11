@@ -134,13 +134,21 @@ module.exports = function(grunt) {
         dest: 'source/',
         js_dest: 'source/lib',
         options: {
-          ignorePackages: ['jquery','less'],
+          ignorePackages: ['jquery','less','scss'],
           packageSpecific: {
             'angular-material': {
               css_dest: 'source/css/lib/'
             },
             'ngStorage':{
               js_dest:'source/js/lib'
+            },
+            'textAngular':{
+              js_dest: 'source/lib',
+              css_dest: 'source/css/lib/',
+              keepExpandedHierarchy:false
+            },
+            'font-awesome':{
+              css_dest:'source/css/lib/'
             }
           }
         }
