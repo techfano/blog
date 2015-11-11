@@ -85,11 +85,12 @@
                       .icon("share", "svg/share.svg", 24)
                       .icon("arrow_back", "svg/arrow_back.svg", 24)
                       .icon("arrow_forward", "svg/arrow_forward.svg", 24)
+                      .icon("search", "svg/search.svg", 24)
                       .icon("close", "svg/close.svg", 24);
 
                       $mdThemingProvider.theme('default')
-                          .primaryPalette('blue')
-                          .accentPalette('red');
+                          .primaryPalette('teal')
+                          .accentPalette('blue');
         
     });
 
