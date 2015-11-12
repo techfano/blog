@@ -13,8 +13,7 @@
   </div>
 </md-toolbar>
 
-<md-content id="container-mini" flex>
-
+<md-content id="container-mini">
   <md-card ng-repeat="post in publications">
     <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">
     <md-card-content>
@@ -29,7 +28,10 @@
       </md-button>
     </div>
   </md-card>
+</md-content>
 
+<md-content id="container-mini" flex>
+    <div text-angular ng-model="htmlVariable">TEXT</div>
 </md-content>
 
 

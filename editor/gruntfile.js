@@ -134,7 +134,7 @@ module.exports = function(grunt) {
         dest: 'source/',
         js_dest: 'source/lib',
         options: {
-          ignorePackages: ['jquery','less','scss'],
+          ignorePackages: ['jquery','less','font-awesome'],
           packageSpecific: {
             'angular-material': {
               css_dest: 'source/css/lib/'
@@ -146,9 +146,6 @@ module.exports = function(grunt) {
               js_dest: 'source/lib',
               css_dest: 'source/css/lib/',
               keepExpandedHierarchy:false
-            },
-            'font-awesome':{
-              css_dest:'source/css/lib/'
             }
           }
         }
@@ -198,7 +195,6 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-
       all: ['source/scripts/**/*.js']
     },
 
