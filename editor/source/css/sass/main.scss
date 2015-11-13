@@ -111,7 +111,6 @@ md-content .article p{
 
 #container-mini {
     width: 25%;
-    padding: 10px;
     background: #F2F2F2 !important;
     height: 89%;
 }
@@ -132,4 +131,21 @@ md-content .article p{
 
 .font-left{
 	text-align: left !important;
+}
+
+/*Editor*/
+
+.textEditor{
+	position: relative;
+    margin-left: 10PX;
+    top: -50px;
+    float: left;
+    width: 70%;
+    background: #FFF;
+    height: 89%;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.ta-bind{
+	border-top:1px dashed #CCC;	
 }

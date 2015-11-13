@@ -5,6 +5,7 @@
         'ngResource',
         'ngMaterial',
         'ngStorage',
+        'textAngular',
         'ui.router',
         'module.controller',
         'module.service',

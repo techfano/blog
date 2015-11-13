@@ -14,14 +14,23 @@
     function controllerPost($scope,$resourceService,$state) {
 
       var postAll =  $resourceService.request('postAll');
+      var paragraphUrl =  $resourceService.request('paragraphUrl');
 
       postAll.get(function(data){
         $scope.publications = data;
       });
 
-      /*$scope.gotoArticle = function(url){
-        $state.search('article',{url:url});
-      };*/
+      $scope.getArticle = function(url){
+
+        paragraphUrl.get({url:url},function(data){
+          $scope.articles = data;
+        });
+
+      };
+
+      $scope.trustHtml = function(data){
+        return $sce.trustAsHtml(data);
+      };
       
     }
     

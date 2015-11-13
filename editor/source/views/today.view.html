@@ -23,16 +23,30 @@
       </p>
     </md-card-content>
     <div class="md-actions" layout="row" layout-align="end center">
-      <md-button class="md-primary md-raised md-icon-button">
+      <md-button ng-click="getArticle(post.url)" class="md-primary md-raised md-icon-button">
         <md-icon md-svg-icon="arrow_forward" ></md-icon>
       </md-button>
     </div>
   </md-card>
 </md-content>
 
-<md-content id="container-mini" flex>
-    <div text-angular ng-model="htmlVariable">TEXT</div>
-</md-content>
+<div class="textEditor">
+  <text-angular ng-model="htmlVariable">
+    <article data-ng-repeat="paragraph in articles">
+      
+      <h2><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h2>
+      
+      <figure>
+        <img data-ng-show="paragraph.image_url" data-ng-src="{{paragraph.image_url}}" />
+      </figure>
+
+
+      <div data-ng-bind-html="trustHtml(paragraph.paragraph)">
+      </div>
+
+      </article>
+  </text-angular>
+</div>
 
 
   
