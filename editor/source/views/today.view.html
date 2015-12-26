@@ -31,7 +31,6 @@
 </md-content>
 
 <div class="textEditor">
-  <text-angular ng-model="htmlVariable">
     <article data-ng-repeat="paragraph in articles">
       
       <h2><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h2>
@@ -41,11 +40,11 @@
       </figure>
 
 
-      <div data-ng-bind-html="trustHtml(paragraph.paragraph)">
-      </div>
+      <text-angular ng-model="paragraph.paragraph">
+
+      </text-angular>
 
       </article>
-  </text-angular>
 </div>
 
 
