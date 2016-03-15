@@ -1,51 +1,22 @@
-<md-toolbar id="toolbar-mini">
-  <div class="md-toolbar-tools">
-    <md-input-container ng-show="searchToggle" md-theme="dark" flex>
-      <label>Busqueda</label>
-      <input ng-model="user.name" flex> 
-    </md-input-container>
-    <h1 ng-show="!searchToggle" flex>
-      ARTICULOS
-    </h1>
-    <md-button ng-click="searchToggle = !searchToggle;" class="md-icon-button" aria-label="Settings">
-      <md-icon md-svg-icon="search"></md-icon>
-    </md-button>
-  </div>
-</md-toolbar>
-
-<md-content id="container-mini">
-  <md-card ng-repeat="post in publications">
-    <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">
-    <md-card-content>
-      <h2 class="md-title">{{post.title_sub_head}}</h2>
-      <p>
-        {{post.resume}}
-      </p>
-    </md-card-content>
-    <div class="md-actions" layout="row" layout-align="end center">
-      <md-button ng-click="getArticle(post.url)" class="md-primary md-raised md-icon-button">
-        <md-icon md-svg-icon="arrow_forward" ></md-icon>
-      </md-button>
-    </div>
-  </md-card>
-</md-content>
-
 <div class="textEditor">
-    <article data-ng-repeat="paragraph in articles">
-      
-      <h2><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h2>
-      
-      <figure>
-        <img data-ng-show="paragraph.image_url" data-ng-src="{{paragraph.image_url}}" />
-      </figure>
+  <article data-ng-repeat="paragraph in articles">
+    
+    <h2><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h2>
+    
+    <figure>
+      <img data-ng-show="paragraph.image_url" data-ng-src="{{paragraph.image_url}}" />
+    </figure>
 
 
-      <text-angular ng-model="paragraph.paragraph">
+    <text-angular ng-model="paragraph.paragraph">
 
-      </text-angular>
+    </text-angular>
 
-      </article>
-</div>
+  </article>
+</div>  
+
+
+
 
 
   

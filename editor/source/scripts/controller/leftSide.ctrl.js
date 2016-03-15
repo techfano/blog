@@ -7,10 +7,11 @@
     	'$scope',
     	'$mdSidenav',
       '$mdUtil',
-      '$log'
+      '$log',
+      '$resourceService'
     ];
 
-    function controllerLeftSide($scope,$mdSidenav,$mdUtil,$log) {
+    function controllerLeftSide($scope,$mdSidenav,$mdUtil,$log,$resourceService) {
 
       $scope.close = function () {
         $mdSidenav('left').close()
@@ -18,6 +19,12 @@
             $log.debug("close LEFT is done");
           });
       };
+
+      var postAll =  $resourceService.request('postAll');
+
+      postAll.get(function(data){
+        $scope.publications = data;
+      });
     	
     }
     
