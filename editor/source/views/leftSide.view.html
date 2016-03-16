@@ -1,4 +1,83 @@
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+<div layout="column" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" 
+                md-component-id="left" 
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-locked-open>
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div flex-xs flex-gt-xs="100" layout="column">
+          
+          <md-card ng-repeat="post in publications">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline"></span>
+                <span class="md-subhead">{{post.title_sub_head}}</span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img ng-src="{{post.image_url}}" class="md-card-image" alt="">
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="getArticle(post.url)" class="md-primary md-raised md-icon-button">
+                <md-icon md-svg-icon="arrow_forward" ></md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card>
+
+          <md-card ng-repeat="post in publications">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline"></span>
+                <span class="md-subhead">{{post.title_sub_head}}</span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img ng-src="{{post.image_url}}" class="md-card-image" alt="">
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="getArticle(post.url)" class="md-primary md-raised md-icon-button">
+                <md-icon md-svg-icon="arrow_forward" ></md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card>
+        
+        </div>
+      </md-content>
+    </md-sidenav>
+    <md-content id="container" flex layout-padding>
+       <ui-view></ui-view>
+    </md-content>
+    <!--md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        <form>
+          <md-input-container>
+            <label for="testInput">Test input</label>
+            <input type="text" id="testInput"
+                   ng-model="data" md-autofocus>
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary">
+          Close Sidenav Right
+        </md-button>
+      </md-content>
+    </md-sidenav-->
+  </section>
+</div>
+
+
+
+
+<!--md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
   <md-toolbar class="md-theme-indigo">
     <h1 class="md-toolbar-tools">Sidenav Left</h1>
   </md-toolbar>
@@ -29,4 +108,4 @@
 </md-sidenav>
 <md-content id="container" flex >
   <ui-view></ui-view>
-</md-content>
+</md-content-->

@@ -20,13 +20,10 @@
         $scope.publications = data;
       });
 
-      $scope.getArticle = function(url){
-
-        paragraphUrl.get({url:url},function(data){
-          $scope.articles = data;
-        });
-
-      };
+      $scope.$on('getArticle', function(event, data){
+        $scope.articles = data;
+      });
+      
 
       $scope.trustHtml = function(data){
         return $sce.trustAsHtml(data);
