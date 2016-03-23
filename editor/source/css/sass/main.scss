@@ -1,4 +1,4 @@
-@import 'vars'; 
+@import 'vars';
 
 * {
  font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -29,7 +29,7 @@ md-content .article{
 	width: 800px;
 	margin: 0 auto 20px auto !important;
 	padding: 0 0 20px 0 !important;
-	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);	
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
 md-card{
@@ -95,14 +95,16 @@ md-content .article p{
 }
 
 .fabToolbardemoBasicUsage md-fab-toolbar.md-left md-fab-trigger.align-with-text {
-  left: 7px; 
+  left: 7px;
 }
 
 #container{
-	width: 50%;
-	margin: 0 auto;
-	background: $background-color !important;
-	height:100%;
+  width: 100%;
+  margin: 0 auto;
+  background: #F2F2F2 !important;
+  height: 90%;
+  position: absolute;
+  overflow: hidden;
 }
 
 #toolbar-mini{
@@ -121,7 +123,7 @@ md-content .article p{
 	}
 
 	md-content .article{
-		width:95%;		
+		width:95%;
 	}
 }
 
@@ -142,16 +144,19 @@ md-content .article p{
 }
 
 .textEditor{
-	position: relative;
-    margin-left: 10PX;
-    top: -50px;
-    float: left;
-    width: 70%;
+    position: relative;
+    margin: 0 auto;
+    /* margin-left: 10PX; */
+    /* float: left; */
+    width: 1000px;
     background: #FFF;
-    height: 89%;
+    height: 100%;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+    overflow-x: hidden;
+
 }
 
 .ta-bind{
-	border-top:1px dashed #CCC;	
+	border-top:1px dashed #CCC;
 }

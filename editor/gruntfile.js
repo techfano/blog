@@ -1,6 +1,6 @@
 // Gruntfile with the configuration of grunt-express and grunt-open. No livereload yet!
 module.exports = function(grunt) {
- 
+
   // Load Grunt tasks declared in the package.json file
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     scripts: {
       js:[],
       css:[]
-    }     
+    }
   }
 
   Object.keys(bowerFile.dependencies).map(
@@ -25,8 +25,8 @@ module.exports = function(grunt) {
             project.scripts.css.push('source/css/lib/'+file+'.css');
         }
   );
- 
-  // Configure Grunt 
+
+  // Configure Grunt
   grunt.initConfig({
 
     freddie: {
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           root: 'source',
           port: 3000,
           proxy: {
-            '/api': 'http://prodesign.pe'
+            '/api': 'http://prodesign.pe/api'
           }
         }
       }
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                             ]
                 },
                 styles: {
-                    bundle: [ 
+                    bundle: [
                         'source/css/**/*.css',
                         project.scripts.css
                     ]
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                             ]
                 },
                 styles: {
-                    bundle: [ 
+                    bundle: [
                         'distro/css/**/*.css'
                     ]
                 },
@@ -118,12 +118,12 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {                              
-      dist: {                             
-        options: {                        
+    sass: {
+      dist: {
+        options: {
           style: 'expanded'
         },
-        files: {                          
+        files: {
           'source/css/main.css': 'source/css/sass/main.scss'
         }
       }
@@ -214,9 +214,9 @@ module.exports = function(grunt) {
               "source/css/lib"],
       distro:["distro"]
     },
-   
+
     //*****************************************************
- 
+
     // grunt-express will serve the files from the folders listed in `bases`
     // on specified `port` and `hostname`
     express: {
@@ -232,7 +232,7 @@ module.exports = function(grunt) {
         }
       }
     },
- 
+
     // grunt-watch will monitor the projects files
     watch: {
       options: {
@@ -248,7 +248,7 @@ module.exports = function(grunt) {
                 'source/css/**/**.scss']
       }
     },
- 
+
     // grunt-open will open your browser at the project's URL
     open: {
       all: {
@@ -257,7 +257,7 @@ module.exports = function(grunt) {
       }
     }
   });
- 
+
   // Creates the `swam` task
   grunt.registerTask('swam', [
     'clean:source',
