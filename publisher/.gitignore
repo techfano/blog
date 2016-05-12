@@ -4,9 +4,9 @@ bower_components/
 /distro/
 /export/
 .sass-cache/
-source/css/lib/
+/source/css/lib/
 source/index.html
-source/lib/
+/source/lib/
 *.css
 *.map
 
