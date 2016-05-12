@@ -1,4 +1,4 @@
-<md-card ng-repeat="post in publications">
+<!--md-card ng-repeat="post in publications">
   <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">
   <md-card-content>
     <h2 class="md-title">{{post.title_sub_head}}</h2>
@@ -11,4 +11,37 @@
       <md-icon md-svg-icon="arrow_forward" ></md-icon>
     </md-button>
   </div>
+</md-card-->
+
+<md-card ng-repeat="post in publications">
+  <md-card-header>
+    <md-card-avatar>
+      <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+    </md-card-avatar>
+    <md-card-header-text>
+      <span class="md-title">Autor</span>
+      <span class="md-subhead">Estefano</span>
+    </md-card-header-text>
+  </md-card-header>
+  <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{post.title}}</span>
+      <span class="md-subhead">{{post.title_sub_head}}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <!--md-card-actions layout="row" layout-align="start center">
+    <md-button>Action 1</md-button>
+    <md-button>Action 2</md-button>
+  </md-card-actions-->
+  <md-card-content>
+    <p>
+     {{post.resume}}
+    </p>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button ui-sref="article({url:post.url})" class="md-primary md-raised md-icon-button">
+      <md-icon md-svg-icon="arrow_forward" ></md-icon>
+    </md-button>
+  </md-card-actions>
 </md-card>

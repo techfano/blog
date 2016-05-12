@@ -1,6 +1,6 @@
 // Gruntfile with the configuration of grunt-express and grunt-open. No livereload yet!
 module.exports = function(grunt) {
- 
+
   // Load Grunt tasks declared in the package.json file
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     scripts: {
       js:[],
       css:[]
-    }     
+    }
   }
 
   Object.keys(bowerFile.dependencies).map(
@@ -25,8 +25,8 @@ module.exports = function(grunt) {
             project.scripts.css.push('source/css/lib/'+file+'.css');
         }
   );
- 
-  // Configure Grunt 
+
+  // Configure Grunt
   grunt.initConfig({
 
     freddie: {
@@ -35,7 +35,11 @@ module.exports = function(grunt) {
           root: 'source',
           port: 3000,
           proxy: {
+<<<<<<< HEAD
+            '/api': 'http://prodesign.pe/api'
+=======
             '/api': 'http://prodesign.pe'
+>>>>>>> master
           }
         }
       }
@@ -56,7 +60,7 @@ module.exports = function(grunt) {
                             ]
                 },
                 styles: {
-                    bundle: [ 
+                    bundle: [
                         'source/css/**/*.css',
                         project.scripts.css
                     ]
@@ -79,7 +83,7 @@ module.exports = function(grunt) {
                             ]
                 },
                 styles: {
-                    bundle: [ 
+                    bundle: [
                         'distro/css/**/*.css'
                     ]
                 },
@@ -118,12 +122,12 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {                              
-      dist: {                             
-        options: {                        
+    sass: {
+      dist: {
+        options: {
           style: 'expanded'
         },
-        files: {                          
+        files: {
           'source/css/main.css': 'source/css/sass/main.scss'
         }
       }
@@ -134,13 +138,18 @@ module.exports = function(grunt) {
         dest: 'source/',
         js_dest: 'source/lib',
         options: {
-          ignorePackages: ['jquery','less'],
+          ignorePackages: ['jquery','less','font-awesome'],
           packageSpecific: {
             'angular-material': {
               css_dest: 'source/css/lib/'
             },
             'ngStorage':{
               js_dest:'source/js/lib'
+            },
+            'textAngular':{
+              js_dest: 'source/lib',
+              css_dest: 'source/css/lib/',
+              keepExpandedHierarchy:false
             }
           }
         }
@@ -190,7 +199,6 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-
       all: ['source/scripts/**/*.js']
     },
 
@@ -210,9 +218,9 @@ module.exports = function(grunt) {
               "source/css/lib"],
       distro:["distro"]
     },
-   
+
     //*****************************************************
- 
+
     // grunt-express will serve the files from the folders listed in `bases`
     // on specified `port` and `hostname`
     express: {
@@ -228,7 +236,7 @@ module.exports = function(grunt) {
         }
       }
     },
- 
+
     // grunt-watch will monitor the projects files
     watch: {
       options: {
@@ -244,7 +252,7 @@ module.exports = function(grunt) {
                 'source/css/**/**.scss']
       }
     },
- 
+
     // grunt-open will open your browser at the project's URL
     open: {
       all: {
@@ -253,7 +261,7 @@ module.exports = function(grunt) {
       }
     }
   });
- 
+
   // Creates the `swam` task
   grunt.registerTask('swam', [
     'clean:source',

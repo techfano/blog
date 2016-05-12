@@ -5,6 +5,7 @@
         'ngResource',
         'ngMaterial',
         'ngStorage',
+        'textAngular',
         'ui.router',
         'module.controller',
         'module.service',
@@ -89,8 +90,10 @@
                       .icon("close", "svg/close.svg", 24);
 
                       $mdThemingProvider.theme('default')
-                          .primaryPalette('teal')
-                          .accentPalette('blue');
+                          .primaryPalette('teal');
+
+                      $mdThemingProvider.theme('dark')
+                        .primaryPalette('red');
         
     });
 

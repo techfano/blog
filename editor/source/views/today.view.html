@@ -1,38 +1,21 @@
-<md-toolbar id="toolbar-mini">
-  <div class="md-toolbar-tools">
+<div class="textEditor">
+  <article data-ng-repeat="paragraph in articles">
     
-    <h1>
-      ARTICULOS
-    </h1>
-    <md-button class="md-icon-button" aria-label="Settings">
-      <md-icon md-svg-icon="search"></md-icon>
-    </md-button>
-  </div>
-</md-toolbar>
-
-<md-content id="container-mini" flex>
+    <h2><span>{{$index+1}}. </span><span>{{paragraph.subtitle}}</span></h2>
     
-    <md-input-container md-theme="blue" flex>
-      <label>First name</label>
-      <input ng-model="user.name">
-    </md-input-container>
+    <figure>
+      <img data-ng-show="paragraph.image_url" data-ng-src="{{paragraph.image_url}}" />
+    </figure> 
 
-  <md-card ng-repeat="post in publications">
-    <img ng-src="{{post.image_url}}" class="md-card-image" alt="Washed Out">
-    <md-card-content>
-      <h2 class="md-title">{{post.title_sub_head}}</h2>
-      <p>
-        {{post.resume}}
-      </p>
-    </md-card-content>
-    <div class="md-actions" layout="row" layout-align="end center">
-      <md-button class="md-primary md-raised md-icon-button">
-        <md-icon md-svg-icon="arrow_forward" ></md-icon>
-      </md-button>
-    </div>
-  </md-card>
+    <text-angular ng-model="paragraph.paragraph">
 
-</md-content>
+    </text-angular>
+
+  </article>
+</div>  
+
+
+
 
 
   
