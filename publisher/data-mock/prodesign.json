@@ -1,0 +1,30 @@
+{
+  "username":"techfano",
+  "password": "Estef4n0",
+  "email": "mixc21@gmail.com",
+  "name": "Estefano",
+  "lastName": "Castañeda",
+  "admin": true,
+  "root": true,
+  "birthDay": "09/04/1984",
+  "location": "Peru"
+}
+
+{
+  "url": "estamos_renovandonos_mientras_tomamos_cafe",
+  "title": "title",
+  "title_sub_head": "title_sub_head",
+  "image_url": "http://noticias.universia.es/net/images/educacion/6/6-/6-c/6-consejos-estudiar.jpg",
+  "resume": "Resume",
+  "mainparagraph": "Main Paragraph",
+  "autor_id": "1"
+}
+
+{
+    "post_id": "5734f08765f960c607e4026b",
+    "post_url": "estamos_renovandonos_mientras_tomamos_cafe",
+    "post_number_order": 1,
+    "subtitle": "Subtitle",
+    "paragraph": "Paragraph",
+    "image_url": "http://www.trackmind.com/wp-content/uploads/2016/02/2016_BlogPost8_HCD.jpg"
+}
