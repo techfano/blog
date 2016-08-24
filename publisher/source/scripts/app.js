@@ -12,8 +12,13 @@
     ]);
 
 
-    app.config(function ($stateProvider, $urlRouterProvider,$httpProvider,$mdThemingProvider,$mdIconProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider,$httpProvider,$mdThemingProvider,$mdIconProvider,$locationProvider) {
 
+        $locationProvider.html5Mode({
+          enabled: false,
+          requireBase: false
+        }).hashPrefix('!');
+        
         $stateProvider.state('init', {
             abstract: true,
             views: {
