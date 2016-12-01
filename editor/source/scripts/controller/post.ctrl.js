@@ -22,6 +22,7 @@
 
       $scope.$on('getArticle', function(event, data){
         $scope.articles = data;
+        console.log(data);
       });
       
 

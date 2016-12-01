@@ -15,26 +15,7 @@
               </md-card-title-text>
               <md-card-title-media>
                 <div class="md-media-lg card-media">
-                  <img ng-src="{{post.image_url}}" class="md-card-image" alt="">
-                </div>
-              </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="getArticle(post.url)" class="md-primary md-raised md-icon-button">
-                <md-icon md-svg-icon="arrow_forward" ></md-icon>
-              </md-button>
-            </md-card-actions>
-          </md-card>
-
-          <md-card ng-repeat="post in publications">
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline"></span>
-                <span class="md-subhead">{{post.title_sub_head}}</span>
-              </md-card-title-text>
-              <md-card-title-media>
-                <div class="md-media-lg card-media">
-                  <img ng-src="{{post.image_url}}" class="md-card-image" alt="">
+                  <img height="150" width="150" ng-src="{{post.image_url}}" class="md-card-image" alt="">
                 </div>
               </md-card-title-media>
             </md-card-title>

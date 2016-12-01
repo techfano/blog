@@ -35,11 +35,7 @@ module.exports = function(grunt) {
           root: 'source',
           port: 3000,
           proxy: {
-<<<<<<< HEAD
             '/api': 'http://prodesign.pe/api'
-=======
-            '/api': 'http://prodesign.pe'
->>>>>>> master
           }
         }
       }

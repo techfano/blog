@@ -15,10 +15,10 @@
     app.config(function ($stateProvider, $urlRouterProvider,$httpProvider,$mdThemingProvider,$mdIconProvider,$locationProvider) {
 
         $locationProvider.html5Mode({
-          enabled: false,
+          enabled: true,
           requireBase: false
         }).hashPrefix('!');
-        
+
         $stateProvider.state('init', {
             abstract: true,
             views: {
@@ -59,7 +59,7 @@
         });
 
         $urlRouterProvider.otherwise("/today");
-        
+
         $httpProvider.interceptors.push(['$q', '$location','serviceStorage', function($q, $location, serviceStorage) {
             return {
                     'request': function (config) {
@@ -71,13 +71,13 @@
                     },
                     'responseError': function(response) {
 
-                        if(response.status === 401 || 
-                           response.status === 403 || 
-                           response.status === 500 || 
+                        if(response.status === 401 ||
+                           response.status === 403 ||
+                           response.status === 500 ||
                            response.status===0) {
 
                             //$location.path('/login');
-                        
+
                         }
                         return $q.reject(response);
                     }
@@ -96,7 +96,7 @@
                       $mdThemingProvider.theme('default')
                           .primaryPalette('teal')
                           .accentPalette('red');
-        
+
     });
 
     app.run( function( $rootScope ,$resourceService, $state) {
@@ -110,14 +110,14 @@
                   $state.go('dashboard');
               },function(error){
                   $state.go('login');
-              });              
+              });
 
         };
-        
+
         $rootScope.$on('$locationChangeStart',function(obj,data){
-            
+
             //checkingSession();
-           
+
         });
 
     });
