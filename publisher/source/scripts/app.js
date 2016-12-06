@@ -15,8 +15,8 @@
     app.config(function ($stateProvider, $urlRouterProvider,$httpProvider,$mdThemingProvider,$mdIconProvider,$locationProvider) {
 
         $locationProvider.html5Mode({
-          enabled: true,
-          requireBase: false
+          enabled: false,
+          requireBase: true
         }).hashPrefix('!');
 
         $stateProvider.state('init', {
